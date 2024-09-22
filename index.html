@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selector Game</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <section id="gameArea">
+        <button id="startGameButton" onclick="startGame()">Start Game</button>
+    </section>
+    <input id="cssInput"  onchange="zapItems()" type="text" placeholder="Enter CSS Selector and Press Enter">
+    <audio id="gameOverSound" preload="auto" src="sounds/GameOver.wav" />
+    <audio id="beginGameSound" src="sounds/StartGame.wav" />
+</body>
+</html>
