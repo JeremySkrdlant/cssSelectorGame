@@ -11,8 +11,10 @@
     <section id="gameArea">
         <button id="startGameButton" onclick="startGame()">Start Game</button>
     </section>
-    <input id="cssInput"  onchange="zapItems()" type="text" placeholder="Enter CSS Selector and Press Enter">
+    <input id="cssInput" class="hidden" onchange="zapItems()" type="text" placeholder="Enter CSS Selector and Press Enter">
     <audio id="gameOverSound" preload="auto" src="sounds/GameOver.wav" />
     <audio id="beginGameSound" src="sounds/StartGame.wav" />
+    <audio id="correctSound" src="sounds/Correct.wav" />
+    <audio id="incorrectSound" src="sounds/Incorrect.wav"></audio>
 </body>
 </html>

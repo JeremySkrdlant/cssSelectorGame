@@ -73,7 +73,7 @@ function addNextItem(){
     //random choice and increase speed every 20; 
 
     if(score % 20 == 0){
-        gameSpeed -= 200; 
+        gameSpeed -= 400; 
     }
 
     let choice = Math.floor(Math.random() * 3);
@@ -95,17 +95,15 @@ function addNextItem(){
 //   GAME LOOP
 //
 //----------------------------------------------------------
-function startGame(){
-    cssInput.classList.remove("hidden");
-    //Start the game out by having the text input selected
-    cssInput.focus();
-    document.getElementById("beginGameSound").play();
-    gameArea.innerHTML = "";
-    
+  
 
-   
-    setClock();
-    
+function startGame(){
+    document.getElementById("beginGameSound").play();
+    cssInput.classList.remove("hidden");
+    cssInput.focus();
+    gameArea.innerHTML = "";
+    addNextItem();
+    setClock(); 
 }
 
 function updateGameField(){
@@ -160,7 +158,7 @@ function zapItems(){
     let allTags = gameArea.childNodes; 
     
     //Go in reverse to prevent not removing the next item in the array. 
-    for(var i = allTags.length - 1; i > 0; i-- ){
+    for(var i = allTags.length - 1; i >= 0; i-- ){
         var tag = allTags[i];
         if (tag.dataset){
             if (tag.dataset.key == currentSelector){
@@ -171,8 +169,10 @@ function zapItems(){
     }
     
     if (correctCount == 0){
-        console.log("Wrong Selector");
-        // play beep sound
+        //User did not type in the correct selector
+        document.getElementById("incorrectSound").play();
+    }else {
+        document.getElementById("correctSound").play();
     }
 
     score += correctCount; 
